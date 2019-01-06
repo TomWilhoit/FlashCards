@@ -1,15 +1,60 @@
 import React, { Component } from 'react';
 import './css/App.css';
+import App from './App';
 
 
-class Timer extends Component {
+export default class Timer extends Component {
+  constructor(props) {
+    super(props)
+    
+    this.state = {
+      seconds: 3
+    };
+  }
+  
+  componentWillMount() {
+    this.startTimer()
+  }
+
+  restartTimer = () => {
+    this.setState({
+      seconds: 3
+    })
+    this.props.shouldRestart();
+  }
+  
+  startTimer = () => {
+    this.timer = setInterval(this.eachTick.bind(this), 1000);
+  }
+  
+
+  eachTick() {
+    if (this.state.seconds > 0)
+    this.setState({
+      seconds: (this.state.seconds - 1)
+    });
+
+    if (this.state.seconds === 0){
+      console.log('time up');
+      clearInterval(this.timer);
+      this.props.shouldRestart();
+
+    }
+
+  }
+
   render() {
     return (
-      <div className="Timer">
-        <h2>Timer</h2>
+      <div className='timer-container'>
+        <h2 className='timer-clock'>{this.state.seconds}</h2>
+        <button className='start-btn' onClick={this.startTimer}>Start Timer</button>
+        <button className='restart-btn' onClick={this.restartTimer}>Restart Button</button>
       </div>
     );
   }
 }
+  
 
-export default Timer
+
+
+
