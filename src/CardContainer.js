@@ -9,14 +9,16 @@ class CardContainer extends Component {
   
 
   render() {
+    const { id, question, correctAnswer, falseAnswer1, falseAnswer2 } = this.props.questionObj
     return (
       <div>
         <Card
-        id={this.props.id}
-        question={this.props.question}
-        correctAnswer={this.props.correctAnswer}
-        falseAnswer1={this.props.falseAnswer1}
-        falseAnswer2={this.props.falseAnswer2}
+        id={id}
+        question={question}
+        correctAnswer={correctAnswer}
+        falseAnswer1={falseAnswer1}
+        falseAnswer2={falseAnswer2}
+        incrementQuestionIndex = {this.props.incrementQuestionIndex}
         />  
       </div>
     )}

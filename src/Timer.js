@@ -8,7 +8,7 @@ export default class Timer extends Component {
     super(props)
     
     this.state = {
-      seconds: 3
+      seconds: 900
     };
   }
   
@@ -18,17 +18,17 @@ export default class Timer extends Component {
 
   restartTimer = () => {
     this.setState({
-      seconds: 3
+      seconds: 900
     })
     this.props.shouldRestart();
   }
   
   startTimer = () => {
-    this.timer = setInterval(this.eachTick.bind(this), 1000);
+    this.timer = setInterval(this.eachTick, 1000);
   }
   
 
-  eachTick() {
+  eachTick = () => {
     if (this.state.seconds > 0)
     this.setState({
       seconds: (this.state.seconds - 1)

@@ -14,7 +14,9 @@ class App extends Component {
 
     this.state = {
       questions: FlashCardDataSet,
-      shouldRestart: false
+      shouldRestart: false,
+      questionIndex: 0,
+      
     }
   }
  
@@ -29,6 +31,13 @@ class App extends Component {
       })
     }
   }
+
+  incrementQuestionIndex = () => {
+    const newIndex = this.state.questionIndex + 1;
+    this.setState({
+      questionIndex: newIndex
+    })
+  }
   
   
   render() {
@@ -36,12 +45,8 @@ class App extends Component {
       <div className="App">
         <Banner/>
         <CardCountainer
-        id={this.state.questions[0].id}
-        question={this.state.questions[0].question}
-        correctAnswer={this.state.questions[0].correctAnswer}
-        falseAnswer1={this.state.questions[0].falseAnswer1}
-        falseAnswer2={this.state.questions[0].falseAnswer2}
-        />
+        questionObj= {this.state.questions[this.state.questionIndex]}
+        incrementQuestionIndex = {this.incrementQuestionIndex}/>
         <Timer shouldRestart={this.shouldRestart}/>
         <Counter/>
 
