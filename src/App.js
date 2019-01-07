@@ -13,12 +13,25 @@ class App extends Component {
 
 
     this.state = {
-      questions: FlashCardDataSet,
+      questions: [],
       shouldRestart: false,
       questionIndex: 0,
       savedArray: [],
     }
   }
+
+  componentDidMount = () => {
+    fetch("http://memoize-datasets.herokuapp.com/api/v1/FlashCardDataSet")
+    .then(results => results.json())
+    .then((result) => {
+      this.setState({
+        questions: result.FlashCardDataSet
+      })
+    })
+    .catch(err => {
+      this.setState({error: err})
+    })
+  };
  
   shouldRestart = () => {
     if (this.state.shouldRestart===false) {
@@ -54,13 +67,15 @@ class App extends Component {
   
   
   render() {
+    let index = this.state.questionIndex 
     return (
       <div className="App">
         <Banner/>
         <CardCountainer
-        questionObj= {this.state.questions[this.state.questionIndex]}
+        questions= {this.state.questions}
         incrementQuestionIndex = {this.incrementQuestionIndex}
-        saveToStorage = {this.saveToStorage}/>
+        saveToStorage = {this.saveToStorage}
+        questionIndex = {this.state.questionIndex}/>
         <Timer shouldRestart={this.shouldRestart}/>
         <Counter
         questionIndex = {this.state.questionIndex}/>

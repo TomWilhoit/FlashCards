@@ -7,21 +7,27 @@ class CardContainer extends Component {
     super(props)
   }
   
+  checkLoad = () => {
+    if (this.props.questions.length !== 0){
+
+    }
+  }
 
   render() {
-    const { id, question, correctAnswer, falseAnswer1, falseAnswer2 } = this.props.questionObj
-    return (
+   return (
       <div>
+        {this.props.questions.length !== 0 &&
         <Card
-        id={id}
-        question={question}
-        correctAnswer={correctAnswer}
-        falseAnswer1={falseAnswer1}
-        falseAnswer2={falseAnswer2}
+        id={this.props.questions[this.props.questionIndex].id}
+        question={this.props.questions[this.props.questionIndex].question}
+        correctAnswer={this.props.questions[this.props.questionIndex].correctAnswer}
+        falseAnswer1={this.props.questions[this.props.questionIndex].falseAnswer1}
+        falseAnswer2={this.props.questions[this.props.questionIndex].falseAnswer2}
         incrementQuestionIndex = {this.props.incrementQuestionIndex}
-        saveToStorage = {this.props.saveToStorage}/>  
+        saveToStorage = {this.props.saveToStorage}/> } 
       </div>
     )}
+  
   };
 
 
