@@ -16,7 +16,7 @@ class App extends Component {
       questions: FlashCardDataSet,
       shouldRestart: false,
       questionIndex: 0,
-      
+      savedArray: [],
     }
   }
  
@@ -38,6 +38,19 @@ class App extends Component {
       questionIndex: newIndex
     })
   }
+
+  saveToStorage = () => {
+    let [...savedQuestions] = this.state.savedArray
+    savedQuestions.push(this.state.questions[this.state.questionIndex])
+    localStorage.setItem('savedQuestions',JSON.stringify(savedQuestions))
+    this.setState({
+      savedArray: savedQuestions
+    })
+
+      
+
+    }
+  
   
   
   render() {
@@ -46,13 +59,14 @@ class App extends Component {
         <Banner/>
         <CardCountainer
         questionObj= {this.state.questions[this.state.questionIndex]}
-        incrementQuestionIndex = {this.incrementQuestionIndex}/>
+        incrementQuestionIndex = {this.incrementQuestionIndex}
+        saveToStorage = {this.saveToStorage}/>
         <Timer shouldRestart={this.shouldRestart}/>
-        <Counter/>
+        <Counter
+        questionIndex = {this.state.questionIndex}/>
 
       </div>
-    );
+    ) };
   }
-}
 
 export default App;

@@ -19,7 +19,7 @@ class CardContainer extends Component {
         falseAnswer1={falseAnswer1}
         falseAnswer2={falseAnswer2}
         incrementQuestionIndex = {this.props.incrementQuestionIndex}
-        />  
+        saveToStorage = {this.props.saveToStorage}/>  
       </div>
     )}
   };
