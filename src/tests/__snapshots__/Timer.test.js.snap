@@ -7,15 +7,9 @@ exports[`Timer should match snapshot when all data is passed correctly 1`] = `
   <h2
     className="timer-clock"
   >
-    0
+    15
     :
-    05
+    00
   </h2>
-  <button
-    className="start-btn"
-    onClick={[Function]}
-  >
-    Start Timer
-  </button>
 </div>
 `;

@@ -2,7 +2,7 @@
 
 exports[`Counter should match snapshot when all data is passed correctly 1`] = `
 <div
-  className="Counter"
+  className="counter"
 >
   <h2>
     Question 

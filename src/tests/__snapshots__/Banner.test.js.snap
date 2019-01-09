@@ -2,7 +2,7 @@
 
 exports[`Banner should match snapshot when all data is passed correctly 1`] = `
 <div
-  className="Banner"
+  className="banner"
 >
   <h1>
     FEE MOD2 Flashcards
