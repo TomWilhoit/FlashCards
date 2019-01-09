@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should match the snapshot with all data passed in correctly 1`] = `
+<div
+  className="App"
+>
+  <Banner />
+  <CardContainer
+    finishGame={[Function]}
+    incrementQuestionIndex={[Function]}
+    questionIndex={0}
+    questions={Array []}
+    saveToStorage={[Function]}
+    shouldRestart={false}
+  />
+  <Timer
+    shouldRestartGame={[Function]}
+  />
+  <Counter
+    questionIndex={0}
+  />
+</div>
+`;

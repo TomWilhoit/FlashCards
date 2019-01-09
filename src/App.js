@@ -5,20 +5,30 @@ import Banner from './Banner';
 import Counter from './Counter';
 import Card from './Card';
 import FlashCardDataSet from './FlashCardDataSet';
-import './css/App.css';
+import './css/Main.scss';
+
 
 class App extends Component {
   constructor() {
     super();
-
 
     this.state = {
       questions: [],
       shouldRestart: false,
       questionIndex: 0,
       savedArray: [],
+      wrongArray: []
     }
   }
+
+  finishGame = () => {
+    if (this.state.questionIndex === 39){
+      this.setState({
+        shouldRestart: true
+      })
+    }
+  }
+
 
   componentDidMount = () => {
     fetch("http://memoize-datasets.herokuapp.com/api/v1/FlashCardDataSet")
@@ -32,11 +42,12 @@ class App extends Component {
       this.setState({error: err})
     })
   };
- 
-  shouldRestart = () => {
+
+  shouldRestartGame = () => {
     if (this.state.shouldRestart===false) {
     this.setState({
       shouldRestart: true
+    
     })
   } else{
     this.setState({
@@ -59,15 +70,16 @@ class App extends Component {
     this.setState({
       savedArray: savedQuestions
     })
-
-      
-
-    }
+  }
   
+  pullFromStorage = () => {
+    return JSON.parse(localStorage.getItem('savedQuestions'))
+  }
   
   
   render() {
-    let index = this.state.questionIndex 
+  let index = this.state.questionIndex 
+  if(this.state.shouldRestart === false){ 
     return (
       <div className="App">
         <Banner/>
@@ -75,13 +87,36 @@ class App extends Component {
         questions= {this.state.questions}
         incrementQuestionIndex = {this.incrementQuestionIndex}
         saveToStorage = {this.saveToStorage}
-        questionIndex = {this.state.questionIndex}/>
-        <Timer shouldRestart={this.shouldRestart}/>
+        questionIndex = {this.state.questionIndex}
+        shouldRestart={this.state.shouldRestart}
+        finishGame={this.finishGame}/>
+        <Timer shouldRestartGame={this.shouldRestartGame}/>
         <Counter
         questionIndex = {this.state.questionIndex}/>
-
       </div>
-    ) };
+    )} else {
+      let wrongArray = this.pullFromStorage();
+      console.log(wrongArray)
+      return(
+        <div>
+          <h1>Let's Review!</h1>
+          <button className="restart-game-btn" onClick={this.shouldRestartGame}>Restart the Game!</button>
+          {wrongArray.map(element => {
+            return(
+              <Card
+                id={element.id}
+                question={element.question}
+                correctAnswer={element.correctAnswer}
+                incrementQuestionIndex = {this.incrementQuestionIndex}
+                saveToStorage = {this.saveToStorage}
+                shouldRestart={this.state.shouldRestart}
+                />
+              )
+            })
+          }
+        </div>
+      )
+    }
   }
-
+}
 export default App;

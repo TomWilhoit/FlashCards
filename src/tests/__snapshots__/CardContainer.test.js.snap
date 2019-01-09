@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardContainer should match snapshot when all data is passed correctly 1`] = `
+<div>
+  <Card
+    correctAnswer="The value of the this keyword, in reference to the object that owns the currently executing code"
+    falseAnswer1="Context is the exact same as scope"
+    falseAnswer2="Function based reference to the function that 'owns' the currently executing code"
+    finishGame={[MockFunction]}
+    id={1}
+    incrementQuestionIndex={[MockFunction]}
+    question="What is 'context' in Javascript?"
+    saveToStorage={[MockFunction]}
+    shouldRestart={false}
+  />
+</div>
+`;

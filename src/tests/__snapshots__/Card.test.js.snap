@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card should match snapshot when all data is passed correctly 1`] = `
+<div
+  className="Card"
+>
+  <h2 />
+  <button
+    className="correct-answer-btn"
+    onClick={[Function]}
+  />
+  <button
+    className="false-answer-btn1"
+    onClick={[Function]}
+  />
+  <button
+    className="false-answer-btn2"
+    onClick={[Function]}
+  />
+</div>
+`;

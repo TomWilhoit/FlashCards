@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CardContainer from './CardContainer';
+import './css/Card.scss';
 
 class Card extends Component {
   constructor(props) {
@@ -18,10 +19,15 @@ class Card extends Component {
   };
   
   correctGuess = () => {
-    alert('Great Answer. Top Marks. Advance to MOD 6.');
-    this.props.incrementQuestionIndex()
-    this.questionOrderRandomizer();
+    if(this.props.shouldRestart === true){
+      alert('Oh! You got it right. With no other options. Incredible.')
     
+    } else if (this.props.shouldRestart === false) {
+      alert('Great Answer. Top Marks. Advance to MOD 6.');
+      this.props.incrementQuestionIndex();
+      this.questionOrderRandomizer();
+      this.props.finishGame();
+      }
   };
 
   falseGuess = () => {
@@ -33,7 +39,7 @@ class Card extends Component {
     if (this.state.correctClicked === false && this.state.questionOrder === 1) {
       return (
         <div className="Card">
-          <h2>{this.props.question}</h2>
+          <h2 className="question">{this.props.question}</h2>
           <button className="correct-answer-btn" onClick={this.correctGuess}>{this.props.correctAnswer}</button>
           <button className="false-answer-btn1" onClick={this.falseGuess}>{this.props.falseAnswer1}</button>
           <button className="false-answer-btn2" onClick={this.falseGuess}>{this.props.falseAnswer2}</button>
@@ -42,7 +48,7 @@ class Card extends Component {
     } else if(this.state.correctClicked === false && this.state.questionOrder === 2) {
       return (
       <div className="Card">
-      <h2>{this.props.question}</h2>
+      <h2 className="question">{this.props.question}</h2>
       <button className="false-answer-btn1" onClick={this.falseGuess}>{this.props.falseAnswer1}</button>
       <button className="correct-answer-btn" onClick={this.correctGuess}>{this.props.correctAnswer}</button>
       <button className="false-answer-btn2" onClick={this.falseGuess}>{this.props.falseAnswer2}</button>
@@ -50,11 +56,11 @@ class Card extends Component {
       )
     }else if(this.state.correctClicked === false && this.state.questionOrder === 3) {
       return (
-      <div className="Card">
-      <h2>{this.props.question}</h2>
-      <button className="false-answer-btn1" onClick={this.falseGuess}>{this.props.falseAnswer1}</button>
-      <button className="false-answer-btn2" onClick={this.falseGuess}>{this.props.falseAnswer2}</button>
-      <button className="correct-answer-btn" onClick={this.correctGuess}>{this.props.correctAnswer}</button>
+      <div className="card">
+      <h2 className="question">{this.props.question}</h2>
+      <button className="button false-answer-btn1" onClick={this.falseGuess}>{this.props.falseAnswer1}</button>
+      <button className="button false-answer-btn2" onClick={this.falseGuess}>{this.props.falseAnswer2}</button>
+      <button className="button correct-answer-btn" onClick={this.correctGuess}>{this.props.correctAnswer}</button>
     </div>
       )
     }

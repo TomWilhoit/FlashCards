@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Timer should match snapshot when all data is passed correctly 1`] = `
+<div
+  className="timer-container"
+>
+  <h2
+    className="timer-clock"
+  >
+    0
+    :
+    05
+  </h2>
+  <button
+    className="start-btn"
+    onClick={[Function]}
+  >
+    Start Timer
+  </button>
+</div>
+`;
