@@ -4,4 +4,9 @@
 @import "Counter";
 @import "Timer";
 @import "Banner";
+@import url('<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet"> ');
 
+html {
+  background-color:beige;
+  font-family: 'Lato', sans-serif;
+}

@@ -11,6 +11,10 @@ export default class Timer extends Component {
       seconds: 900,
     };
   }
+
+  componentDidMount = () => {
+    this.startTimer();
+  }
   
 
   startTimer = () => {
@@ -41,7 +45,7 @@ export default class Timer extends Component {
     return (
       <div className='timer-container'>
         <h2 className='timer-clock'>{Math.floor(this.state.seconds/60)}:{this.returnSeconds()}</h2>
-        <button className='start-btn' onClick={this.startTimer}>Start Timer</button>
+        {/* <button className='start-btn' onClick={this.startTimer}>Start Timer</button> */}
       </div>
     );
   }

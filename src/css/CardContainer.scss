@@ -1,19 +1,16 @@
 
 
 .card {
-  display: grid;
   background-color: bisque;
   border-style: solid;
   margin: 25px;
   width: 80%;
-  height: 30%;
 };
 
 .card-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-style: dashed;
 }
 
 .question {
