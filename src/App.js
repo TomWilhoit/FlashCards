@@ -96,10 +96,9 @@ class App extends Component {
       </div>
     )} else {
       let wrongArray = this.pullFromStorage();
-      console.log(wrongArray)
       return(
-        <div>
-          <h1>Let's Review!</h1>
+        <div className="return-questions">
+          <h1 className="review-header">Let's Review!</h1>
           <button className="restart-game-btn" onClick={this.shouldRestartGame}>Restart the Game!</button>
           {wrongArray.map(element => {
             return(

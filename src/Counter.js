@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import App from './App';
-import './css/Counter.scss';
+import React, { Component } from "react";
+import App from "./App";
+import "./css/Counter.scss";
 
 class Counter extends Component {
   render() {
@@ -12,4 +12,4 @@ class Counter extends Component {
   }
 }
 
-export default Counter
+export default Counter;

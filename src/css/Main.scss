@@ -7,6 +7,11 @@
 @import url('<link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">');
 
 html {
-  background-color:beige;
-  font-family: 'Rubik', sans-serif;
+  background-image: url(images/grass.jpg);
+  background-repeat: repeat;
+  font-family: "Rubik", sans-serif;
+  height: 100%;
+  object-fit: fill;
+  text-align: center;
+  width: 100%;
 }

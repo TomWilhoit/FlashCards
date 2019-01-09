@@ -1,16 +1,14 @@
-
-
 .card {
   background-color: bisque;
   border-style: solid;
   margin: 25px;
   width: 80%;
-};
+}
 
 .card-container {
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .question {
