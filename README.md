@@ -1,3 +1,24 @@
+# Memoize FEE Mod 2 FlashCards
+
+## A study tool application for the Front End Engineering program at the Turing School of Software and Design.
+
+### Contributors: [Tom Wilhoit](https://github.com/TomWilhoit)
+
+![screen shot 2019-01-09 at 7 45 12 am](https://user-images.githubusercontent.com/38082195/50906994-8ddbb180-13e3-11e9-9998-f8bddf97df2e.png)
+
+#### You are given 15 minutes to complete 40 questions pertaining to the material for the class.
+
+![screen shot 2019-01-09 at 7 49 02 am](https://user-images.githubusercontent.com/38082195/50907116-d004f300-13e3-11e9-809b-8ac05b9bb87a.png)
+
+![screen shot 2019-01-09 at 7 46 58 am](https://user-images.githubusercontent.com/38082195/50907197-03e01880-13e4-11e9-8b98-3517661d0a52.png)
+
+#### After the time is up or all of the questions are answered, your wrong answers are displayed with the correct answer to study. You are also given the opportunity to try again! 
+
+### Technologies Used: ReactJS - JSX - Jest - Enzyme - Sass - Heroku API fetch 
+
+### Time alotted: One Week.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
